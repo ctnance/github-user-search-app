@@ -12,12 +12,42 @@
   --dark-black: #141d2f;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Space Mono", "Courier New", Courier, monospace;
   padding: 1.5em;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 1.625rem;
+  margin: 0;
+}
+
+.theme-toggler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8125rem;
+  letter-spacing: 2.5px;
+  cursor: pointer;
+}
+
+.theme-toggler span {
+  margin-right: 1em;
 }
 
 /* MEDIA QUERIES */
+
+/* COLOR SCHEME QUERIES */
 
 @media (prefers-color-scheme: dark) {
   body,
@@ -34,3 +64,6 @@ body {
     color: var(--light-color);
   }
 }
+
+/* SCREEN QUERIES */
+/* TODO: Screen queries to go here */
