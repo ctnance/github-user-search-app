@@ -1,0 +1,36 @@
+:root {
+  --standard-blue: #0079ff;
+  /* Light Mode Colors */
+  --light-bg: #f6f8ff;
+  --light-color: #4b6a9b;
+  --light-gray: #697c9a;
+  --light-off-white: #fefefe;
+
+  /* Dark Mode Colors */
+  --dark-bg: #141d2f;
+  --dark-color: #fff;
+  --dark-black: #141d2f;
+}
+
+body {
+  font-family: "Space Mono", "Courier New", Courier, monospace;
+  padding: 1.5em;
+}
+
+/* MEDIA QUERIES */
+
+@media (prefers-color-scheme: dark) {
+  body,
+  .dark-theme {
+    background: var(--dark-bg);
+    color: var(--dark-color);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body,
+  .light-theme {
+    background: var(--light-bg);
+    color: var(--light-color);
+  }
+}
