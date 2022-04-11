@@ -99,7 +99,7 @@ main {
   cursor: pointer;
 }
 
-.theme-toggler span {
+.header--theme-toggler span {
   margin-right: 1em;
 }
 
@@ -116,17 +116,27 @@ main {
   ); /* USING DARK THEME COLORS FOR TESTING. TODO: Remove this later. */
   color: inherit;
   width: 100%;
+  font-family: inherit;
   font-size: 0.8125rem; /* 13px */
   line-height: 25px;
-  padding: 1.125em 0;
-  padding-left: 2.8125em;
-  padding-right: 6.125em;
+  padding: 18px 0;
+  padding-left: 45px;
+  padding-right: 98px;
+}
+
+.user-search-bar--icon {
+  position: absolute;
+  max-width: 20.5px;
+  margin: 20px 16px 20px;
 }
 
 .user-search-bar--button {
   position: absolute;
   top: 0;
   right: 0;
+  line-height: 25px;
+  letter-spacing: 1px;
+  margin: 7px;
 }
 
 .user-card {
@@ -140,15 +150,21 @@ main {
   display: flex;
 }
 
-.user-card--user-img {
+.user-card--user-avatar {
+  border-radius: 50%;
+  max-width: 70px;
+}
+
+.user-card--user-avatar-wrapper {
   margin-right: 1.25em;
 }
 
 .user-info--username {
   color: var(--standard-blue);
+  margin-bottom: 0.375em;
 }
 
-.user-card--description p {
+.user-card--bio p {
   font-size: 0.8125rem;
   margin: 2em 0 1.375em;
 }

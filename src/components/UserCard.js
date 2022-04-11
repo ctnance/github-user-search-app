@@ -1,79 +1,64 @@
-import React from "react";
-import CatTest from "../images/cat-test.png";
+import React, { useContext } from "react";
+import ListItem from "./ListItem";
+import { userDataContext } from "../userDataContext";
+
+// Icons
 import LocationIcon from "../images/icon-location.svg";
 import WebsiteIcon from "../images/icon-website.svg";
 import TwitterIcon from "../images/icon-twitter.svg";
 import CompanyIcon from "../images/icon-company.svg";
 
 function UserCard() {
+  const { userData } = useContext(userDataContext);
+  const date = new Date(userData.created_at);
+  console.log(date);
+  const dateOptions = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
+
   return (
     <div className="user-card">
       <div className="user-card--user">
-        <div className="user-card--user-img">
-          <img src={CatTest} alt="" />
+        <div className="user-card--user-avatar-wrapper">
+          <img className="user-card--user-avatar" src={userData.avatar_url} alt="" />
         </div>
         <div className="user-card--user-info">
-          <h3>User Name</h3>
-          <h4 className="user-info--username">@username</h4>
-          <h4>Joined 11 Apr 2022</h4>
+          <h3>{userData.name}</h3>
+          <h4 className="user-info--username">@{userData.login}</h4>
+          <h4>Joined {date.toLocaleDateString("en-US", dateOptions)}</h4>
         </div>
       </div>
 
-      <div className="user-card--description">
+      <div className="user-card--bio">
         <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-          Quisque volutpat mattis eros.
+          {/* Putting a default bio here is not used for production purposes (only to match the original design document as a prototype) */}
+          {userData.bio ||
+            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."}
         </p>
       </div>
 
       <div className="user-card--stats">
         <div className="user-repos">
           <p className="user-stat-title">Repos</p>
-          <p className="user-stat-number">8</p>
+          <p className="user-stat-number">{userData.public_repos}</p>
         </div>
         <div className="user-followers">
           <p className="user-stat-title">Followers</p>
-          <p className="user-stat-number">3938</p>
+          <p className="user-stat-number">{userData.followers}</p>
         </div>
         <div className="user-following">
           <p className="user-stat-title">Following</p>
-          <p className="user-stat-number">9</p>
+          <p className="user-stat-number">{userData.following}</p>
         </div>
       </div>
 
       <ul className="user-card--contact">
-        <li className="user-card--contact-item">
-          <div className="user-card--contact-icon-wrapper">
-            <img className="user-card--contact-icon" src={LocationIcon} alt="" />
-          </div>
-          <div className="user-card--contact-text">
-            <h4>San Fransisco</h4>
-          </div>
-        </li>
-        <li className="user-card--contact-item">
-          <div className="user-card--contact-icon-wrapper">
-            <img className="user-card--contact-icon" src={WebsiteIcon} alt="" />
-          </div>
-          <div className="user-card--contact-text">
-            <h4>San Fransisco</h4>
-          </div>
-        </li>
-        <li className="user-card--contact-item unavailable">
-          <div className="user-card--contact-icon-wrapper">
-            <img className="user-card--contact-icon" src={TwitterIcon} alt="" />
-          </div>
-          <div className="user-card--contact-text">
-            <h4>Not Available</h4>
-          </div>
-        </li>
-        <li className="user-card--contact-item">
-          <div className="user-card--contact-icon-wrapper">
-            <img className="user-card--contact-icon" src={CompanyIcon} alt="" />
-          </div>
-          <div className="user-card--contact-text">
-            <h4>@github</h4>
-          </div>
-        </li>
+        <ListItem item={userData.location} icon={LocationIcon} />
+        <ListItem item={userData.blog} icon={WebsiteIcon} />
+        <ListItem item={userData.twitter_username} icon={TwitterIcon} />
+        <ListItem item={userData.company} icon={CompanyIcon} />
       </ul>
     </div>
   );
