@@ -4,9 +4,9 @@ import moonIcon from "../images/icon-moon.svg";
 
 function Header() {
   return (
-    <header>
-      <h1>devfinder</h1>
-      <div className="theme-toggler">
+    <header className="header">
+      <h1 className="header--title">devfinder</h1>
+      <div className="header--theme-toggler">
         <span>LIGHT</span>
         <img src={sunIcon} />
       </div>

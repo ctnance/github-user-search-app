@@ -2,10 +2,14 @@ import React from "react";
 
 function SearchBar() {
   return (
-    <form>
-      <input type="text" placeholder="Search GitHub username…" />
-      <button>Search</button>
-    </form>
+    <div className="user-search-bar">
+      <input
+        className="user-search-bar--input"
+        type="text"
+        placeholder="Search GitHub username…"
+      />
+      <button className="user-search-bar--button">Search</button>
+    </div>
   );
 }
 
