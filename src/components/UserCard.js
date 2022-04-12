@@ -10,6 +10,7 @@ import CompanyIcon from "../images/icon-company.svg";
 
 function UserCard() {
   const { userData } = useContext(userDataContext);
+  if (!userData) return;
   const date = new Date(userData.created_at);
   console.log(date);
   const dateOptions = {

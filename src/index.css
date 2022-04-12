@@ -139,6 +139,16 @@ main {
   margin: 7px;
 }
 
+.user-search-bar--no-results {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  font-weight: bold;
+  width: 92px;
+  margin: 18px 106px;
+}
+
 .user-card {
   border-radius: 0.9375em;
   background-color: var(--dark-blue);

@@ -9,20 +9,30 @@ function UserDataContextProvider({ children }) {
 
   async function fetchUserData(user) {
     setLoading(true);
+    setError(null);
     try {
       let response = await fetch(`https://api.github.com/users/${user}`);
       let data = await response.json();
       console.log(data);
       if (data) {
-        setUserData(data);
+        if (data.message) {
+          throw Error("User not found!");
+        } else {
+          setUserData(data);
+        }
       } else {
         throw Error("Failed to fetch user data.");
       }
     } catch (e) {
       console.log(e);
+      setError(e);
     } finally {
       setLoading(false);
     }
+  }
+
+  function clearError() {
+    setError(null);
   }
 
   // On load, fetch user data for 'octocat' as default
@@ -31,7 +41,7 @@ function UserDataContextProvider({ children }) {
   }, []);
 
   return (
-    <Context.Provider value={{ userData, loading, error, fetchUserData }}>
+    <Context.Provider value={{ userData, loading, error, fetchUserData, clearError }}>
       {children}
     </Context.Provider>
   );

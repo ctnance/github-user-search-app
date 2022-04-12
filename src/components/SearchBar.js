@@ -4,11 +4,12 @@ import SearchIcon from "../images/icon-search.svg";
 
 function SearchBar() {
   const [inputText, setInputText] = React.useState("");
-  const { fetchUserData } = useContext(userDataContext);
+  const { error, clearError, fetchUserData } = useContext(userDataContext);
 
   function handleChange(e) {
     const { name, value } = e.target;
     setInputText(value);
+    clearError();
   }
 
   function handleSubmit(e) {
@@ -26,11 +27,13 @@ function SearchBar() {
         type="text"
         value={inputText}
         onChange={handleChange}
-        placeholder="Search GitHub username…"
+        placeholder={!error ? "Search GitHub username…" : ""}
+        maxLength={39}
       />
       <button onClick={handleSubmit} className="user-search-bar--button">
         Search
       </button>
+      {error && <p className="user-search-bar--no-results">No results</p>}
     </form>
   );
 }
