@@ -37,8 +37,7 @@ function UserCard() {
       <div className="user-card--bio">
         <p>
           {/* Putting a default bio here is not used for production purposes (only to match the original design document as a prototype) */}
-          {userData.bio ||
-            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros."}
+          {userData.bio || "This profile has no bio"}
         </p>
       </div>
 
