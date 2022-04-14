@@ -8,6 +8,7 @@ function UserDataContextProvider({ children }) {
   const [error, setError] = React.useState(null);
 
   async function fetchUserData(user) {
+    console.log("FETCHING USER " + user);
     setLoading(true);
     setError(null);
     try {

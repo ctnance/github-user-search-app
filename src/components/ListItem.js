@@ -7,7 +7,7 @@ function ListItem(props) {
         <img className="user-card--contact-icon" src={props.icon} alt="" />
       </div>
       <div className="user-card--contact-text">
-        <h4>{props.item ? props.item : "Not Available"}</h4>
+        <p>{props.item ? props.item : "Not Available"}</p>
       </div>
     </li>
   );

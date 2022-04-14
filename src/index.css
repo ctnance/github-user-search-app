@@ -6,6 +6,8 @@
   /* Light Mode Colors */
   --light-bg: #f6f8ff;
   --light-color: #4b6a9b;
+  --light-dark-text: #222731;
+  --light-med-dark-text: #2b3442;
   --light-gray: #697c9a;
   --light-off-white: #fefefe;
 
@@ -13,6 +15,8 @@
   --dark-bg: #141d2f;
   --dark-blue: #1e2a47;
 }
+
+/* HTML TAG STYLES */
 
 * {
   box-sizing: border-box;
@@ -38,12 +42,12 @@ h1 {
 }
 
 h2 {
-  font-size: 1.375rem; /* 22px */
+  font-size: 1rem; /* 16px */
   line-height: 33px;
 }
 
 h3 {
-  font-size: 1rem; /* 16px */
+  font-size: 0.8125rem; /* 13px */
   line-height: 24px;
 }
 
@@ -54,7 +58,7 @@ h4 {
 }
 
 p {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 0.8125rem; /* 13px */
   line-height: 25px;
 }
 
@@ -73,15 +77,64 @@ button:hover {
   background-color: var(--standard-blue-fade);
 }
 
+/* THEME SPECIFIC STYLES */
+
+.dark-theme {
+  color: var(--white);
+}
+
+.dark-theme .user-search-bar--input,
+.dark-theme .user-card {
+  background-color: var(--dark-blue);
+}
+
+.dark-theme .user-card--contact-icon {
+  filter: brightness(0) invert(1);
+}
+
+.light-theme {
+  color: var(--light-color);
+}
+
+.light-theme .header--title {
+  color: var(--light-dark-text);
+}
+
+.light-theme .user-search-bar--input {
+  box-shadow: 0px 16px 30px -10px hsla(227, 46%, 50%, 0.2);
+}
+
+.light-theme .user-search-bar--input,
+.light-theme .user-card {
+  background-color: var(--light-off-white);
+}
+
+.light-theme .user-card--stats {
+  background-color: var(--light-bg);
+}
+
+.light-theme .user-card--title,
+.light-theme .user-stat-number {
+  color: var(--light-med-dark-text);
+}
+
+/* CUSTOM CLASS STYLES */
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .header,
 main {
   max-width: 350px;
-  margin: 0 auto;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   margin-bottom: 2.25em;
 }
 
@@ -95,8 +148,10 @@ main {
   justify-content: center;
   align-items: center;
   font-size: 0.8125rem;
+  font-weight: bold;
   letter-spacing: 2.5px;
   cursor: pointer;
+  user-select: none;
 }
 
 .header--theme-toggler span {
@@ -111,9 +166,6 @@ main {
 .user-search-bar--input {
   border: none;
   border-radius: 0.9375em;
-  background-color: var(
-    --dark-blue
-  ); /* USING DARK THEME COLORS FOR TESTING. TODO: Remove this later. */
   color: inherit;
   width: 100%;
   font-family: inherit;
@@ -152,6 +204,7 @@ main {
 .user-card {
   border-radius: 0.9375em;
   background-color: var(--dark-blue);
+  box-shadow: 0px 4px 4px 0px hsla(0, 0%, 0%, 0.251);
   margin-top: 1em;
   padding: 2em 1.5em 3em;
 }
@@ -171,11 +224,11 @@ main {
 
 .user-info--username {
   color: var(--standard-blue);
+  font-weight: normal;
   margin-bottom: 0.375em;
 }
 
 .user-card--bio p {
-  font-size: 0.8125rem;
   margin: 2em 0 1.375em;
 }
 
@@ -219,10 +272,6 @@ main {
 
 .user-card--contact-icon-wrapper {
   min-width: 2em;
-}
-
-.user-card--contact-icon {
-  filter: brightness(0) invert(1);
 }
 
 /* MEDIA QUERIES */

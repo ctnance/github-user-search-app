@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ListItem from "./ListItem";
-import { userDataContext } from "../userDataContext";
+import { userDataContext } from "../contexts/userDataContext";
 
 // Icons
 import LocationIcon from "../images/icon-location.svg";
@@ -26,9 +26,9 @@ function UserCard() {
           <img className="user-card--user-avatar" src={userData.avatar_url} alt="" />
         </div>
         <div className="user-card--user-info">
-          <h3>{userData.name}</h3>
-          <h4 className="user-info--username">@{userData.login}</h4>
-          <h4>Joined {date.toLocaleDateString("en-US", dateOptions)}</h4>
+          <h2 className="user-card--title">{userData.name}</h2>
+          <h3 className="user-info--username">@{userData.login}</h3>
+          <p>Joined {date.toLocaleDateString("en-US", dateOptions)}</p>
         </div>
       </div>
 

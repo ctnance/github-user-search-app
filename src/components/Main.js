@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import SearchBar from "./SearchBar";
 import UserCard from "./UserCard";
-import { userDataContext } from "../userDataContext";
+import { userDataContext } from "../contexts/userDataContext";
 
-function Main() {
-  const { userData, error } = useContext(userDataContext);
-  console.log(userData);
+function Main(props) {
+  const { userData } = useContext(userDataContext);
+  console.log("IS DARK THEME? - " + props.isDarkTheme);
   return (
-    <main>
-      <SearchBar />
-      {userData && <UserCard />}
+    <main className={props.isDarkTheme ? "dark-theme" : "light-theme"}>
+      <SearchBar isDarkTheme={props.isDarkTheme} />
+      {userData && <UserCard isDarkTheme={props.isDarkTheme} />}
     </main>
   );
 }
