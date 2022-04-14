@@ -9,7 +9,7 @@ function Header(props) {
       <div className="header--theme-toggler" onClick={props.toggleTheme}>
         {/* If dark theme, show LIGHT text and sun (light) icon to indicate the option to switch to light theme (or vice versa) */}
         <span>{props.isDarkTheme ? "LIGHT" : "DARK"}</span>
-        <img src={props.isDarkTheme ? sunIcon : moonIcon} />
+        <img src={props.isDarkTheme ? sunIcon : moonIcon} alt="" />
       </div>
     </header>
   );

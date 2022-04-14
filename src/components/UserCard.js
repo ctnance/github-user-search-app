@@ -28,7 +28,9 @@ function UserCard() {
         <div className="user-card--user-info">
           <h2 className="user-card--title">{userData.name}</h2>
           <h3 className="user-info--username">@{userData.login}</h3>
-          <p>Joined {date.toLocaleDateString("en-US", dateOptions)}</p>
+          <p className="user-info--joined-date">
+            Joined {date.toLocaleDateString("en-US", dateOptions)}
+          </p>
         </div>
       </div>
 
