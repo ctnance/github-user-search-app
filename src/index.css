@@ -411,6 +411,10 @@ main {
 }
 
 @media only screen and (min-width: 1440px) {
+  body {
+    padding: 16vh 6.125em 2em;
+  }
+
   .header,
   main {
     max-width: 730px;
