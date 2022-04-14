@@ -186,8 +186,8 @@ main {
   position: absolute;
   top: 0;
   right: 0;
+  font-family: inherit;
   line-height: 25px;
-  letter-spacing: 1px;
   margin: 7px;
 }
 
@@ -228,7 +228,7 @@ main {
   margin-bottom: 0.375em;
 }
 
-.user-card--bio p {
+.user-card--bio {
   margin: 2em 0 1.375em;
 }
 
@@ -296,3 +296,108 @@ main {
 
 /* SCREEN QUERIES */
 /* TODO: Screen queries to go here */
+@media only screen and (min-width: 700px) {
+  body {
+    padding: 8.75em 6.125em 0;
+  }
+
+  h1 {
+    font-size: 1.625rem; /* 26px */
+    line-height: 38px;
+  }
+
+  h2 {
+    font-size: 1.625rem; /* 26px */
+    line-height: 38px;
+  }
+
+  h3 {
+    font-size: 1rem; /* 16px */
+    line-height: 24px;
+  }
+
+  h4 {
+    font-size: 1rem; /* 13px */
+    line-height: 20px;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 25px;
+  }
+
+  .header,
+  main {
+    max-width: 573px;
+  }
+
+  .user-search-bar--icon {
+    max-width: 1.5em;
+    margin: 23px 24px 22px 24px;
+  }
+
+  .user-search-bar--input {
+    font-size: 1.125rem;
+    padding: 1.223em 7.25em 1.223em 5em;
+  }
+
+  .user-search-bar--button {
+    font-size: 1rem;
+    line-height: 23.7px;
+    margin: 9.5px;
+    padding: 13.5px 24px;
+  }
+
+  .user-search-bar--no-results {
+    width: 92px;
+    margin: 24px 134px;
+  }
+
+  .user-card {
+    margin-top: 1.5em;
+    padding: 2.5em;
+  }
+
+  .user-card--user {
+    align-items: center;
+  }
+
+  .user-info--username {
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+
+  .user-card--user-avatar-wrapper {
+    margin-right: 2.5em;
+  }
+
+  .user-card--user-avatar {
+    max-width: 117px;
+  }
+
+  .user-card--bio {
+    margin: 1.5em 0 2em;
+  }
+
+  .user-card--stats {
+    margin-bottom: 1.875em;
+  }
+
+  .user-card--contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .user-card--contact-item {
+    width: 75%;
+  }
+
+  .user-card--contact-item:nth-child(2) {
+    grid-area: 2 / 1 / 2 / 3;
+  }
+
+  .user-card--contact-item:nth-child(4) {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+}
